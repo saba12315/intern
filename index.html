@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intern Testimonials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    header p.subtitle {
+      font-size: 1rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+
+    .testimonial-slider {
+      width: 100%;
+      max-width: 600px;
+      margin: 2rem auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .testimonial-card {
+      flex: 0 0 100%;
+      background-color: #fff;
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .testimonial-card img {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-card h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .testimonial-card .role {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 0.5rem;
+    }
+
+    .stars {
+      color: #f7c01b;
+      margin-bottom: 1rem;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .controls button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .controls button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>What Our Interns Say</h1>
+    <p class="subtitle">Hear from those who’ve been on the journey</p>
+  </header>
+
+  <div class="testimonial-slider">
+    <div class="testimonial-track" id="slider">
+      <!-- Testimonial Card 1 -->
+      <div class="testimonial-card">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Intern 1">
+        <h3>Ayesha Khan</h3>
+        <p class="role">Web Developer Intern</p>
+        <div class="stars">★★★★★</div>
+        <p>"This internship boosted my confidence and gave me real-world project experience."</p>
+      </div>
+
+      <!-- Testimonial Card 2 -->
+      <div class="testimonial-card">
+        <img src="https://images.unsplash.com/photo-1603415526960-f7e0328e1cbe?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Intern 2">
+        <h3>Ahmed Raza</h3>
+        <p class="role">UI/UX Intern</p>
+        <div class="stars">★★★★☆</div>
+        <p>"Learning through live tasks helped me improve both my design and communication skills."</p>
+      </div>
+
+      <!-- Testimonial Card 3 -->
+      <div class="testimonial-card">
+        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Intern 3">
+        <h3> Malik</h3>
+        <p class="role">JavaScript Intern</p>
+        <div class="stars">★★★★★</div>
+        <p>"I now understand how JavaScript powers real apps. Loved working with mentors!"</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="prevSlide()">⟨ Prev</button>
+    <button onclick="nextSlide()">Next ⟩</button>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+    const slider = document.getElementById('slider');
+    const totalSlides = slider.children.length;
+
+    function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+  </script>
+
+</body>
+</html>
